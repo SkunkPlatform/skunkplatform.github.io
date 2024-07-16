@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkunkAPP for Discord Bot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    #container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+    
+    p {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    #select-language {
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #authorize-bots {
+      margin-top: 20px;
+    }
+
+    #authorize-bots button {
+      background-color: #28a745;
+    }
+
+    #authorize-bots button:hover {
+      background-color: #218838;
+    }
+
+    #introduction-lang {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <p id="introduction-lang">SkunkAPP & ZoAPP for Discord Bots</p>
+    <div id="select-language">
+      <p id="select-language-text">Choose your Language</p>
+      <button id="button-en">English</button>
+      <button id="button-es">Español</button>
+    </div>
+    <div id="authorize-bots" style="display: none;">
+      <button id="add-bot-skunkapp">Add to SkunkAPP on Server</button>
+      <button id="add-bot-zoapp">Add to ZoAPP on Server</button>
+    </div>
+  </div>
+  <script>
+    // Language texts
+    const texts = {
+      en: {
+        introduction: "SkunkAPP & ZoAPP for Discord Bots",
+        selectLanguage: "Choose your Language",
+        addBotSkunkapp: "Add to SkunkAPP on Server",
+        addBotZoapp: "Add to ZoAPP on Server"
+      },
+      es: {
+        introduction: "SkunkAPP y ZoAPP para Bots de Discord",
+        selectLanguage: "Elige tu idioma",
+        addBotSkunkapp: "Añadir a SkunkAPP en el servidor",
+        addBotZoapp: "Añadir a ZoAPP en el servidor"
+      }
+    };
+
+    // Function to change text based on selected language
+    function changeLanguage(language) {
+      document.getElementById('introduction-lang').textContent = texts[language].introduction;
+      document.getElementById('select-language-text').textContent = texts[language].selectLanguage;
+      document.getElementById('add-bot-skunkapp').textContent = texts[language].addBotSkunkapp;
+      document.getElementById('add-bot-zoapp').textContent = texts[language].addBotZoapp;
+      document.getElementById('authorize-bots').style.display = 'block';
+      document.getElementById('select-language').style.display = 'none';
+    }
+
+    // Event listeners for buttons
+    document.getElementById('button-en').addEventListener('click', function() {
+      changeLanguage('en');
+    });
+
+    document.getElementById('button-es').addEventListener('click', function() {
+      changeLanguage('es');
+    });
+  </script>
+</body>
+</html>
