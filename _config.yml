@@ -1,0 +1,20 @@
+# Site settings
+title: Skunk Platform
+description: Skunk Platform - The SkunkApp it has a Guilds & Servers Protection.
+baseurl: "" # Leave empty for root deployment (e.g., https://skunkplatform.github.io/)
+url: "https://skunkplatform.github.io" # Your GitHub Pages URL
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Optional settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Social media settings
+github_username: SkunkPlatform # Your GitHub username
+
+# Other settings
+paginate: 5 # Number of posts per page in pagination
