@@ -1,0 +1,59 @@
+/* Base reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f0f12;
+    color: white;
+    cursor: url('/images/cursor.png') 16 16, auto;
+}
+
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+/* Center the list */
+.list-centered {
+    max-width: 1000px;
+    margin: auto;
+    list-style: none;
+}
+
+/* Card links */
+.grid li a {
+    display: block;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.grid li a:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Icon size */
+.grid img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 15px;
+}
+
+/* Text */
+.grid p {
+    font-size: 14px;
+    line-height: 1.4;
+}

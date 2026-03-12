@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkunkPlatform — JavaScript SDK</title>
+
+<link rel="stylesheet" href="../styles/ui.css">
+<link rel="stylesheet" href="../styles/sp.css">
+<link rel="shortcut icon" href="../images/favicon.png" type="image/png">
+
+<style>
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+pre {
+    background: #111;
+    padding: 15px;
+    border-radius: 8px;
+    overflow: auto;
+    color: #dcdcdc;
+}
+
+.note {
+    color: #9fb7ff;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+a.back {
+    display: inline-block;
+    margin-top: 20px;
+    color: #9fb7ff;
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>JavaScript SDK — gjrequest.js</h1>
+
+<p>
+The <strong>gjrequest.js</strong> library is the official Node.js SDK for interacting with SkunkPlatform via GDPlatform services.
+It allows you to send messages, read inbox, fetch level scores, and call other GDPlatform endpoints safely.
+</p>
+
+<h2>Installation</h2>
+<p>Install via npm in your Node.js project:</p>
+<pre>npm install gjrequest.js</pre>
+
+<h2>Example Usage</h2>
+<p>Below is a basic example showing login, reading messages, sending a message, and fetching level scores.</p>
+
+<pre>
+require("dotenv").config();
+const { Client } = require("gjrequest.js");
+
+(async () =&gt; {
+    const client = new Client();
+
+    // Login with environment variables
+    await client.login({
+        accountID: process.env.GD_ACCOUNT_ID,
+        password: process.env.GD_PASSWORD
+    });
+
+    // Read inbox messages
+    const inbox = await client.readMessages();
+    console.log(inbox);
+
+    // Send a message to another account
+    const sent = await client.sendMessage(
+        29294657,
+        "Hello World",
+        "This is a test message!"
+    );
+    console.log(sent);
+
+    // Fetch level scores
+    const scores = await client.getLevelScores(1234567);
+    console.log(scores);
+
+    // Generic endpoint request
+    const response = await client.requestEndpoint("uploadGJMessage20.php", {
+        toAccountID: 29294657,
+        subject: Buffer.from("Test").toString("base64"),
+        body: Buffer.from("Hello!").toString("base64")
+    });
+    console.log(response);
+})();
+</pre>
+
+<p class="note">
+<strong>Important:</strong> Do not run requests from this documentation site.  
+Use a local Node.js environment and your own GDPlatform credentials.
+</p>
+
+<p class="back"><a href="index.html">← Back to Learning Index</a></p>
+
+</div>
+</body>
+</html>

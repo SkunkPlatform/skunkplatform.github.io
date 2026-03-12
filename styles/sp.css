@@ -1,0 +1,27 @@
+/* Container spacing */
+.select-usage {
+    padding-top: 80px;
+}
+
+/* Card colors */
+
+.usage-blue a {
+    background: #2b6cff;
+}
+
+.usage-green a {
+    background: #28b463;
+}
+
+.usage-red a {
+    background: #e74c3c;
+}
+
+.usage-yellow a {
+    background: #f1c40f;
+    color: black;
+}
+
+.usage-orange a {
+    background: #ff8c00;
+}

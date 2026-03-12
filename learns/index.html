@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkunkPlatform Learning</title>
+
+<link rel="stylesheet" href="../styles/ui.css">
+<link rel="stylesheet" href="../styles/sp.css">
+<link rel="shortcut icon" href="../images/favicon.png" type="image/png">
+
+<style>
+.select-usage {
+    padding: 60px 20px;
+}
+
+.grid.list-centered {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    list-style: none;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0;
+}
+
+.grid li a {
+    display: block;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid li a:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.grid img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 15px;
+}
+
+.grid p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Card colors */
+.usage-green a { background: #28b463; }
+.usage-red a { background: #e74c3c; }
+.usage-yellow a { background: #f1c40f; color: black; }
+.usage-orange a { background: #ff8c00; }
+</style>
+</head>
+
+<body>
+
+<div class="select-usage">
+<ul class="grid list-centered">
+
+<li class="usage-green">
+<a href="js.html">
+<img src="../images/ic_javascript.png" alt="JavaScript">
+<p>Discover how to interact with SkunkPlatform using JavaScript in Node.js projects.</p>
+</a>
+</li>
+
+<li class="usage-red">
+<a href="roblox.html">
+<img src="../images/ic_roblox.png" alt="Roblox">
+<p>Learn to connect Roblox games with SkunkPlatform services through supported APIs.</p>
+</a>
+</li>
+
+<li class="usage-yellow">
+<a href="gdplatform.html">
+<img src="../images/ic_gdplatform.png" alt="GDPlatform">
+<p>Understand GDPlatform SDKs in JavaScript, C++, and Java to perform requests safely.</p>
+</a>
+</li>
+
+<li class="usage-orange">
+<a href="gd-oauth.html">
+<img src="../images/ic_gdplatform_oauth.png" alt="GD OAuth">
+<p>Read about GDPlatform OAuth authentication flows with example code for reference.</p>
+</a>
+</li>
+
+</ul>
+</div>
+
+</body>
+</html>

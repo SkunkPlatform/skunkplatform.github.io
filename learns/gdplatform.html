@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkunkPlatform: GDPlatform</title>
+
+<link rel="stylesheet" href="../styles/ui.css">
+<link rel="stylesheet" href="../styles/sp.css">
+<link rel="shortcut icon" href="../images/favicon.png" type="image/png">
+
+<style>
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.links a {
+    display: block;
+    margin: 8px 0;
+    color: #9fb7ff;
+    text-decoration: underline;
+}
+
+pre {
+    background: #111;
+    padding: 15px;
+    border-radius: 8px;
+    overflow: auto;
+    color: #dcdcdc;
+}
+
+.note {
+    color: #9fb7ff;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>GDPlatform — JavaScript SDK</h1>
+
+<p>
+This page documents the official JavaScript implementation of GDPlatform requests.  
+The library is <strong>gjrequest.js</strong>, hosted on GitHub.
+</p>
+
+<h2>Repository Links</h2>
+<div class="links">
+<a href="https://github.com/GDPlatform/GJRequests" target="_blank">Main Repository</a>
+<a href="https://github.com/GDPlatform/GJRequests/tree/javascript" target="_blank">JavaScript Branch</a>
+<a href="https://github.com/GDPlatform/GJRequests/tree/cpp" target="_blank">C++ Branch</a>
+<a href="https://github.com/GDPlatform/GJRequests/tree/java" target="_blank">Java Branch</a>
+</div>
+
+<h2>Installation</h2>
+<p>
+Install via npm in your Node.js project:
+</p>
+
+<pre>npm install gjrequest.js</pre>
+
+<h2>Basic Usage Example</h2>
+<p>
+Below is a minimal example based on the official README. It demonstrates login, reading inbox, sending a message, and calling a generic endpoint.
+</p>
+
+<pre>
+require("dotenv").config();
+const { Client } = require("gjrequest.js");
+
+(async () =&gt; {
+    const client = new Client();
+
+    await client.login({
+        accountID: process.env.GD_ACCOUNT_ID,
+        password: process.env.GD_PASSWORD
+    });
+
+    const inbox = await client.readMessages();
+    console.log(inbox);
+
+    const sent = await client.sendMessage(
+        29294657,
+        "Hello World",
+        "This is a test message!"
+    );
+    console.log(sent);
+
+    const scores = await client.getLevelScores(1234567);
+    console.log(scores);
+
+    const response = await client.requestEndpoint("uploadGJMessage20.php", {
+        toAccountID: 29294657,
+        subject: Buffer.from("Test").toString("base64"),
+        body: Buffer.from("Hello!").toString("base64")
+    });
+    console.log(response);
+})();
+</pre>
+
+<p class="note">
+<strong>Important:</strong> This page is for documentation only. Do not run live requests from this site.  
+Use a local Node.js environment with your own GDPlatform credentials.
+</p>
+
+<p><a href="../">← Back</a></p>
+
+</div>
+</body>
+</html>
